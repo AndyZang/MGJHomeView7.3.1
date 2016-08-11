@@ -42,6 +42,8 @@ static const CGFloat filterViewHeight = 50.0f;
     [self setupViews];
 }
 
+#pragma mark - initViews
+
 - (void)setupViews
 {
     mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
@@ -106,6 +108,7 @@ static const CGFloat filterViewHeight = 50.0f;
 }
 
 #pragma mark - tableView dataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     __block NSInteger num;
@@ -115,11 +118,6 @@ static const CGFloat filterViewHeight = 50.0f;
         }
     }];
     return num;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 40;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -141,6 +139,12 @@ static const CGFloat filterViewHeight = 50.0f;
 }
 
 #pragma mark - tableView delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 40;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -193,6 +197,7 @@ static const CGFloat filterViewHeight = 50.0f;
 }
 
 #pragma mark - events
+
 - (void)buttonClicked:(UIButton *)sender
 {
     for (UIButton *btn in buttonArray) {
@@ -241,4 +246,5 @@ static const CGFloat filterViewHeight = 50.0f;
     fakeHeadView.hidden = YES;
     [tableViewArray[currentTabIndex].tableHeaderView addSubview:headScrollView];
 }
+
 @end
